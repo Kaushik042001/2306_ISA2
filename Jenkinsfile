@@ -1,11 +1,11 @@
 pipeline {
   agent any  // Use any available agent
-    
+  
+  stages {
     stage('Build Docker Image') {
       steps {
         script {
-          // Build the Docker image from the Dockerfile in the cloned repository
-          // Specifying "2306_ISA2" as the build context, where the Dockerfile is located
+          // Build the Docker image from the Dockerfile in the current directory
           bat "docker build -t 2306kaushik/2306 ."
         }
       }
