@@ -27,7 +27,7 @@ pipeline {
       steps {
         script {
           // Copy the application.py file from the running container to the host
-          bat "docker cp my-app-container:/opt/app/application.py ./application.py"
+          bat "docker cp my-app-container:/opt/to/application.py ./application.py"
         }
       }
     }
