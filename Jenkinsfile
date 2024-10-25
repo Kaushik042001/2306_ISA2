@@ -1,5 +1,5 @@
 pipeline {
-  agent any  // Use any available agent
+  agent any
   
   stages {
     stage('Build Docker Image') {
@@ -23,14 +23,20 @@ pipeline {
       }
     }
     
-    stage('Copy application.py and Clean Up') {
+    stage('Copy application.py') {
       steps {
         script {
           // Copy the application.py file from the running container to the host
-          bat "docker cp my-app-container:/path/to/application.py ./application.py"
-          
-          // Delete the container named '2306' if it exists
-          bat "docker rm -f 2306 || exit 0"
+          bat "docker cp my-app-container:/opt/source-code/application.py ./application.py"
+        }
+      }
+    }
+    
+    stage('Cleanup') {
+      steps {
+        script {
+          // Stop and remove the container to clean up the environment
+          bat "docker rm -f my-app-container || exit 0"
         }
       }
     }
