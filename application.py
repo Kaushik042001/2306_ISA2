@@ -1,6 +1,6 @@
 # app.py
 from flask import Flask
-app = Fask(__name__)
+app = Flask(__name__)
 
 @app.route("/")
 def print_rollno():
