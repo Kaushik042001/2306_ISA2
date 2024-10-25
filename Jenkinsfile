@@ -16,7 +16,7 @@ pipeline {
         script {
           // Build the Docker image from the Dockerfile in the cloned repository
           // Specifying "2306_ISA2" as the build context, where the Dockerfile is located
-          bat "docker build -t 2306kaushik/2306 2306_ISA2"
+          bat "docker build -t 2306kaushik/2306 ."
         }
       }
     }
